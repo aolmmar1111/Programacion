@@ -74,7 +74,7 @@ public class Tarea3a {
                 System.out.println("Introduce un año");
                 int opcion5 = teclado.nextInt();
 
-                if ((opcion5 % 400 == 0 || opcion5 % 4 == 0) && opcion5 % 100 != 0) {
+                if (opcion5 % 400 == 0 || opcion5 % 4 == 0 && opcion5 % 100 != 0) {
                     System.out.println("El año es bisiesto");
                 } else {
                     System.out.println("El año no es bisiesto");
