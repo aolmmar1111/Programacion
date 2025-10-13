@@ -6,10 +6,15 @@ public class EjercicioD {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
+        // Declaramos algunas variables que nos van a servir en un futuro
         boolean incorrecto = false;
         int dia,mes,year;
 
+        // Empezamos el bucle do while que se repetira, si la variable 
+        // incorrecto es true, esta variable solo cambiará a true si
+        // el mes no coincide con el numero de dias
         do {
+            // Preguntamos el numero de dias, mes y años
             System.out.println("Introduce el numero del dia");
             dia = teclado.nextInt();
             System.out.println("Introduce el numero del mes");
@@ -17,8 +22,14 @@ public class EjercicioD {
             System.out.println("Introduce el año");
             year = teclado.nextInt();
 
+            // Comprobamos si el año es bisiesto o no, esto lo usaremos luego 
+            // para el mes de febrero
             boolean bisiesto = year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
 
+            // Hacemos un switch donde leamos el mes y dependiendo de que mes
+            // Haremos un If para comprobar que el numero de dias es correcto
+            // Si no es correcto, le diremos al usuario que el mes no es correcto
+            // y cambiaremos el valor de incorrecto a true para asi repetir el bucle
             switch (mes) {
                 case 1,3,5,7,8,10,12:
                     if (dia > 31 || dia < 0)  {
@@ -36,6 +47,8 @@ public class EjercicioD {
                         System.out.println("La fecha introducido es correcta");
                     }
                     break;
+                // Este caso es el de febrero, haremos un if buscando que sea bisiesto o no
+                // si es bisiesto buscaremos que los dias coincidan con el numero de dias correcto
                 case 2:
                     if (bisiesto == true) {
                         if (dia > 29 || dia < 0) {
@@ -54,6 +67,8 @@ public class EjercicioD {
                         }
                     }
             }
+            // Si el usuario pone un mes mayor a 12 haremos que se repita y le diremos que esta poniendo
+            // un mes incorrecto
             if (mes > 12) {
                 incorrecto = true;
                 System.out.println("Introduce un mes entre el 1 (Enero) y 12 (Diciembre)");

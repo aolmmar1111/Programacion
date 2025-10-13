@@ -2,10 +2,14 @@ package daw;
 
 public class EjercicioA {
     public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            int multiploA = i;
-            for (int j = 1; j <= 10; j++) {
-                int multiploB = j;
+        // Este codigo lo que hace es un bucle del numero 1 que seria el primer numero
+        // de la tabla de multiplicar y dentro hace un multiplo de 10 veces de esa tabla
+        // al finalizar las 10 veces suma 1 y sigue con el siguiente numero en la tabla de
+        // multiplicar
+        for (int numero1 = 1; numero1 <= 10; numero1++) {
+            int multiploA = numero1;
+            for (int numero2 = 1; numero2 <= 10; numero2++) {
+                int multiploB = numero2;
                 System.out.println(multiploA + " x " + multiploB  + " = " + (multiploA*multiploB));
             }
         }
