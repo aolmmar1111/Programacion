@@ -50,7 +50,7 @@ public class EjercicioD {
                 // Este caso es el de febrero, haremos un if buscando que sea bisiesto o no
                 // si es bisiesto buscaremos que los dias coincidan con el numero de dias correcto
                 case 2:
-                    if (bisiesto == true) {
+                    if (bisiesto) {
                         if (dia > 29 || dia < 0) {
                             System.out.println("El mes introducido tiene 29 dias");
                             incorrecto = true;
