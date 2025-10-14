@@ -62,8 +62,7 @@ public class EjercicioD {
                             System.out.println("El mes introducido tiene 28 dias");
                             incorrecto = true;
                         } else {
-                            System.out.println("La fecha es correcta");
-                            incorrecto = false;
+                            System.out.println("La fecha " + dia + "/" + mes + "/" + year + " es correcta");
                         }
                     }
             }

@@ -25,6 +25,5 @@ public class EjercicioB {
             }
             System.out.println();
         }
-
     }
 }
