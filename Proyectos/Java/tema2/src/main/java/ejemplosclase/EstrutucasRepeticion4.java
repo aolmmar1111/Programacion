@@ -15,6 +15,9 @@ public class EstrutucasRepeticion4 {
          */   
 
         boolean invalido = false;
+        
+        double random = Math.random();
+        System.out.println(random);
         do { 
             String numero1Txt = JOptionPane.showInputDialog("Introduce el primer digito de tu pin");
             int numero1Int = Integer.parseInt(numero1Txt);
@@ -24,6 +27,7 @@ public class EstrutucasRepeticion4 {
             int numero3Int = Integer.parseInt(numero3Txt);
             String numero4Txt = JOptionPane.showInputDialog("Introduce el cuarto digito de tu pin");
             int numero4Int = Integer.parseInt(numero4Txt);  
+
             
 
             if ((numero1Int == numero2Int || numero1Int == numero3Int || numero1Int == numero4Int ||
@@ -56,5 +60,6 @@ public class EstrutucasRepeticion4 {
             System.out.println("Los 4 digitos que has introducido son correctos");
             }
         } while (invalido);
+        System.out.println(random);
     }
 }
