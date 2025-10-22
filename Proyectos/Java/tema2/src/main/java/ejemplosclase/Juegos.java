@@ -13,6 +13,7 @@ public class Juegos {
         do {
             System.out.println("Que juego quieres jugar?");
             do {
+                numeroJuego = 0;
                 System.out.println("""
                         1 -> Pares/Nones
                         2 -> Piedra, Papel, Tijera
@@ -22,7 +23,7 @@ public class Juegos {
                     numeroJuego = teclado.nextInt();
                 } catch (InputMismatchException ime) {
                     System.out.println("Tienes que introducir un numero del 1 al 3");
-                    numeroJuego = 3;
+                    teclado.nextLine();
                 }
             } while (!(numeroJuego == 1 || numeroJuego == 2 || numeroJuego == 3));
 
@@ -36,7 +37,7 @@ public class Juegos {
                 } while (!((seleccionParesONones.equalsIgnoreCase("nones")) || (seleccionParesONones.equalsIgnoreCase("pares"))));
 
 
-                int numeroParesNones = random.nextInt(21);
+                int numeroParesNones = random.nextInt(1,21);
                 System.out.println(numeroParesNones);
 
                 if (numeroParesNones % 2 == 1 && seleccionParesONones.equalsIgnoreCase("nones")) {
@@ -55,7 +56,7 @@ public class Juegos {
                 teclado.nextLine();
                 String seleccionPiedraPapel = teclado.nextLine();
 
-                int numeroPiedraPapel = random.nextInt(3) + 1;
+                int numeroPiedraPapel = random.nextInt(1,4);
                 System.out.println(numeroPiedraPapel);
 
                 // numero 1 = piedra
@@ -65,32 +66,32 @@ public class Juegos {
                 switch (numeroPiedraPapel) {
                     case 1:
                         if (seleccionPiedraPapel.equalsIgnoreCase("piedra")) {
-                            System.out.println("Empate");
+                            System.out.println("La maquina ha escogido Piedra, eso significa que has empatado");
                         } else if (seleccionPiedraPapel.equalsIgnoreCase("papel")) {
-                            System.out.println("Ganaste");
+                            System.out.println("La maquina ha escogido Piedra, eso significa que has ganado");
                         } else {
-                            System.out.println("Perdiste");
+                            System.out.println("La maquina ha escogido Piedra, eso significa que has perdido");
                         }
                     break;
 
                     case 2:
 
                         if (seleccionPiedraPapel.equalsIgnoreCase("piedra")) {
-                            System.out.println("Ganaste");
+                            System.out.println("La maquina ha escogido Papel, eso significa que has ganado");
                         } else if (seleccionPiedraPapel.equalsIgnoreCase("papel")) {
-                            System.out.println("Empate");
+                            System.out.println("La maquina ha escogido Papel, eso significa que has empatado");
                         } else {
-                            System.out.println("Perdiste");
+                            System.out.println("La maquina ha escogido Papel, eso significa que has perdido");
                         }
                     break;
 
                     case 3:
                         if (seleccionPiedraPapel.equalsIgnoreCase("piedra")) {
-                            System.out.println("Perdiste");
+                            System.out.println("La maquina ha escogido Piedra, eso significa que has perdido");
                         } else if (seleccionPiedraPapel.equalsIgnoreCase("papel")) {
-                            System.out.println("Ganaste");
+                            System.out.println("La maquina ha escogido Piedra, eso significa que has ganado");
                         } else {
-                            System.out.println("Empate");
+                            System.out.println("La maquina ha escogido Piedra, eso significa que has empatado");
                         }
                     break;
                 }
