@@ -35,8 +35,7 @@ public class EjercicioArrays2 {
 
                     int arraySumado = sumarArrays(arrayInt);
                     System.out.println("La suma de los numeros es de: " + arraySumado);
-
-                    repetir=false;
+                    repetir = false;
                 }
                 case 2 -> {
                     System.out.println("¿Cuantos numeros quieres introducir?");
@@ -48,8 +47,9 @@ public class EjercicioArrays2 {
                         arrayInt[i] = tec.nextInt();
                     }
 
-                    int mediaAritmetica = mediaAritmetica(arrayInt);
+                    double mediaAritmetica = mediaAritmetica(arrayInt);
                     System.out.println("La media aritmetica es de: " + mediaAritmetica);
+                    repetir = false;
                 }
                 case 3 -> {
                     System.out.println("¿Cuantos numeros quieres introducir?");
@@ -63,6 +63,7 @@ public class EjercicioArrays2 {
 
                     int numeroRepetido = numeroRepetido(arrayInt);
                     System.out.println("Se ha repetido un total de: " + numeroRepetido + " veces");
+                    repetir = false;
                 }
                 default -> {
                     System.out.println("Tienes que introducir un numero del 1 al 3");
@@ -81,8 +82,8 @@ public class EjercicioArrays2 {
         return arraySumado;
     }
 
-    public static int mediaAritmetica(int[] arrayInt) {
-        int arrayMedia = 0;
+    public static double mediaAritmetica(int[] arrayInt) {
+        double arrayMedia = 0.0;
 
         for (int i = 0; i < arrayInt.length; i++) {
             arrayMedia += arrayInt[i];
