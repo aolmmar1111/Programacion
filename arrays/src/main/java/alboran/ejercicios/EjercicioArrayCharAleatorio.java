@@ -6,9 +6,8 @@ public class EjercicioArrayCharAleatorio {
     public static void main(String[] args) {
         Random random = new Random();
         int longitud = FuncionesBasicas.longitudArray();
-        char [] arrayChar;
+        char [] arrayChar = new char [longitud];
         char letraChar;
-        arrayChar = new char [longitud];
 
         for (int i = 0; i < arrayChar.length; i++) {
             int letraInt = random.nextInt(97,123);

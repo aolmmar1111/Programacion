@@ -16,7 +16,7 @@ public class EjercicioValorMaximo {
         
     }
     public static int buscarMayor (int[] arrayInt){
-        int numero1 = 0;
+        int numero1 = Integer.MIN_VALUE;
         for (int i = 0; i < arrayInt.length; i++) {
             if (arrayInt[i] > numero1 ) {
                 numero1 = arrayInt[i];
