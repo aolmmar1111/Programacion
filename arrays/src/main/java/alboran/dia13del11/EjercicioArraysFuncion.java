@@ -15,7 +15,7 @@ public class EjercicioArraysFuncion {
 
     public static void main(String[] args) {
 
-        int longitud = 10;
+        int longitud = 5;
 
         int[] arrayInt = rellenarArray(longitud);
         for (int i = 0; i < arrayInt.length; i++) {
