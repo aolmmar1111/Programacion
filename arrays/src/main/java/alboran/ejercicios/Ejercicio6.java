@@ -1,4 +1,4 @@
-package alboran.ejercicios2;
+package alboran.ejercicios;
 
 import java.util.Scanner;
 

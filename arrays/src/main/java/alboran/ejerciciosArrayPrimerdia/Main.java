@@ -1,4 +1,4 @@
-package alboran;
+package alboran.ejerciciosArrayPrimerdia;
 
 import java.util.Random;
 
