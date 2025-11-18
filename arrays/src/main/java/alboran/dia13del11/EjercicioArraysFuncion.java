@@ -51,4 +51,14 @@ public class EjercicioArraysFuncion {
 
         return arrayInt;
     }
+
+    public static int contarNumeros (int [] array){
+        int contador = 0;
+        for (int i : array) {
+            if (i!=0) {
+                contador++;
+            }
+        }
+        return contador;
+    }
 }

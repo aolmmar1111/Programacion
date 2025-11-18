@@ -10,7 +10,7 @@ public class EjercicioArrays3 {
     public final static Scanner tec = new Scanner(System.in);
     public final static Random random = new Random();
     public static void main(String[] args) {
-        char letraABuscar = 'n';
+        char letraABuscar = 'o';
         int [] arrayChar;
         arrayChar = new int[60];
 
