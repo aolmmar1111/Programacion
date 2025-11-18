@@ -7,9 +7,8 @@ public class Ejercicio1 {
     /// Vamos a decirle a un usuario que un array de 10 posiciones introduzca numeros del 1 al 5
     private static final Scanner tec = new Scanner(System.in);
     public static void main(String[] args) {
-        int [] arrayInt = new int [10];
-
-        arrayInt = rellenarArray(arrayInt);
+        
+        int [] arrayInt = rellenarArray();
         System.out.println(Arrays.toString(arrayInt));
 
         arrayInt = enumerarArray(arrayInt);
@@ -17,7 +16,8 @@ public class Ejercicio1 {
         System.out.println(Arrays.toString(arrayInt));
     }
 
-    public static int [] rellenarArray (int [] arrayInt){
+    public static int [] rellenarArray (){
+        int [] arrayInt = new int[10];
         int numero = 0;
         for (int i = 0; i < arrayInt.length; i++) {
             do {
