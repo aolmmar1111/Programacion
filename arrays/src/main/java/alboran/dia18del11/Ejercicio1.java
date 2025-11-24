@@ -17,7 +17,7 @@ public class Ejercicio1 {
         for (int i = 0; i < arrayInt.length; i++) {
             System.out.print((i+1) + ":");
             for (int j = 0; j < arrayInt[i]; j++) {
-                System.out.print("* ");
+                System.out.print(" * ");
             }
             System.out.println();
         }
