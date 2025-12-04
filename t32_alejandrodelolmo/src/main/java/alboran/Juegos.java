@@ -56,7 +56,6 @@ public class Juegos {
                     System.out.println("Has perdido");
                 }
             }
-
             // Juego Piedra, papel o tijeras
             if (numeroJuego == 2) {
                 /// Pediremos al usuario que introduzca que quiere jugar, piedra
