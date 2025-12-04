@@ -2,12 +2,13 @@ package passwords;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 import org.apache.commons.lang3.RandomStringUtils;
+
 
 public class Main {
     private static final Scanner tec = new Scanner(System.in);
     private static final RandomStringUtils generador = RandomStringUtils.secure();
-
     public static void main(String[] args) {
         char[] arrayChar = { 'a', 'b', 'e', 'x', 'z', 'u', 'i', 'o', 't', 'h' }; // Declaramos el array de los char disponibles
         int menu = 0; // Inicializamos el menu
@@ -32,7 +33,7 @@ public class Main {
                 // Aqui simplemente limpiaremos el buffer ya que si el input no es 1 , 2 o 3 va a decir que tienes
                 // que poner un numero asi que para no repetirnos solo limpiamos el buffer
             }
-
+            
             // Hacemos un switch para hacer algo dependiendo de lo que haya escrito el usuario
             switch (menu) {
 
