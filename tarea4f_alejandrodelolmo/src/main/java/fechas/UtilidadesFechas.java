@@ -33,9 +33,9 @@ public class UtilidadesFechas {
     public static int diasMes (LocalDate fecha){
         return fecha.lengthOfMonth();
     }
-    public static String diaSemana (LocalDate fecha){
+    public static int diaSemana (LocalDate fecha){
         DateTimeFormatter diaSemana = DateTimeFormatter.ofPattern("c");
-        return fecha.format(diaSemana);
+        return Integer.parseInt(fecha.format(diaSemana))-1;
     }
     public static String mostrarFechaLarga (LocalDate fecha){
         DateTimeFormatter fechaLarga = DateTimeFormatter.ofPattern("EEEE dd 'de' MMMM 'de' yyyy");
