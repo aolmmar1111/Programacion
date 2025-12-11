@@ -1,111 +1,67 @@
 package modelo;
 
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Animal {
-
-    private static final Scanner tec = new Scanner(System.in);
-
     private LocalDate fechaNacimiento;
-    private LocalDate fechaFiltro = LocalDate.parse("01/01/2000");
-    private String nombre;
+    private String nombre,tipo,estado;
     private int peso;
-    private String tipo;
-    private String estado;
-    private final String [] estados = {"comiendo" , "durmiendo" , "reposando" , "jugando"};
-    private final String [] tipos = {"gato" , "perro" , "cobaya" , "periquito" , "lagarto"};
+    private String [] estados = {"comiendo" , "durmiendo" , "reposando" , "jugando"};
+    private String [] tipos = {"gato" , "perro", "cobaya" , "periquito"};
 
-    public Animal(LocalDate fechaNacimiento, String nombre, int peso, String tipo, String estado) {
-        this.fechaNacimiento = fechaNacimiento;
-        if (fechaNacimiento) {
-            
-        }
-        this.nombre = nombre;
-        if (peso > 10 && peso < 100000) {
-            this.peso = peso;
-        } else {
-            throw new IllegalArgumentException("Has introducido un peso no valido");
-        }
-        for (String tipoArray : tipos) {
-            if (tipo.equalsIgnoreCase(tipoArray)) {
-                this.tipo = tipo;
-                break;
-            } else {
-                throw new IllegalArgumentException("Has introducido un tipo no valido");
-            }
-        }
-
-        for (String estadoArray : estados) {
-            if (estado.equalsIgnoreCase(estadoArray)) {
-                this.estado = estado;
-            } else {
-                throw new IllegalArgumentException("Has introducido un estado no valido");
-            }
-        }
+    public Animal (){
+        this.estado = "reposando";
+        this.nombre = "Mike";
+        this.tipo = "perro";
+        this.peso = 5000;
+        this.fechaNacimiento = LocalDate.of(2014,10,10);
     }
 
-    public void  comprobarObjeto (LocalDate fechaNacimiento, String nombre, int peso, String tipo, String estado){
-        if (!(fechaNacimiento.isBefore(fechaFiltro) || fechaNacimiento.isAfter(LocalDate.now()))) {
+    public Animal (Animal copia){
+        this.nombre = copia.nombre;
+        this.fechaNacimiento = copia.fechaNacimiento;
+        this.estado = copia.estado;
+        this.tipo = copia.tipo;
+        this.peso = copia.peso;
+    }
+
+    public Animal(LocalDate fechaNacimiento, String nombre, String tipo, int peso){
+        // Comprobamos que la fecha de nacimiento sea correcta
+        if (!(fechaNacimiento.isBefore(LocalDate.of(2000, 1, 1)) || 
+        fechaNacimiento.isAfter(LocalDate.now()))) {
             this.fechaNacimiento = fechaNacimiento;
         } else {
-            throw new IllegalArgumentException("Has introducido una fecha invalida");
+            throw new IllegalArgumentException("Has introducido una fecha de nacimiento erronea");
         }
-        
+
+        // Comprobamos que el peso sea correcto 
         if (peso > 10 && peso < 100000) {
             this.peso = peso;
         } else {
-            throw new IllegalArgumentException("Has introducido un peso invalido");
+            throw new IllegalArgumentException("Has introducido un peso erroneo");
         }
 
-        for (String tipoArray : tipos) {
-            if (tipo.equalsIgnoreCase(tipoArray)) {
+        // AHora comprobaremos el estado
+        for (String tipoActual : tipos ) {
+            if (tipo.equalsIgnoreCase(tipoActual)) {
                 this.tipo = tipo;
             }
         }
-        
-    }
-    public Animal() {
-        this.fechaNacimiento = LocalDate.now();
-        this.nombre = "Manolito";
-        this.tipo = "perro";
-        this.peso = 25000;
-        this.estado = "reposando";
+        if (this.tipo == null) {
+            throw new IllegalArgumentException("Has introducido un tipo erroneo");
+        }
+
+        this.nombre = nombre;
     }
 
-    @Override
-    public String toString() {
-        return "El nombre de la mascota" + this.nombre +  " la fecha de nacimiento es " 
-        + this.fechaNacimiento + " es un " + this.tipo 
-        + " pesa un total de " + this.peso + " gramos y ahora mismo esta " + this.estado ;
-    }
+    // Getters 
 
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        if (!((fechaNacimiento.isBefore(fechaFiltro)) || (fechaNacimiento.isAfter(fechaFiltro)))) {
-            this.fechaNacimiento = fechaNacimiento;
-        }
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getPeso() {
-        return peso;
-    }
-
-    public void setPeso(int peso) {
-        if (peso < 100000 && peso > 10) {
-            this.peso = peso;
-        }
     }
 
     public String getTipo() {
@@ -116,63 +72,77 @@ public class Animal {
         return estado;
     }
 
-    public void setEstado (String estado){
-        for (int i = 0; i < estados.length; i++) {
-            if (estado.equalsIgnoreCase(estados[i])) {
-                this.estado = estado;
-            }
+    public int getPeso() {
+        return peso;
+    }
+
+    // Setters
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+
+
+    // Metodos
+    @Override
+    public String toString(){
+        return "El nombre del animal es " + this.nombre 
+        + " es un " + this.tipo
+        + " la fecha de nacimiento es " + this.fechaNacimiento 
+        + " pesa un total de " + this.peso 
+        + " gramos y ahora mismo está " + this.estado;
+    }
+
+    public void comer(double cantidadGramos){
+        if (cantidadGramos < 0) {
+            cantidadGramos *= -1;
         }
+        this.peso += cantidadGramos;
         
     }
 
-    public void comer(double cantidadGramos) {
-        if (cantidadGramos < 0) {
-            cantidadGramos = cantidadGramos * -1;
-        }
-        this.peso += cantidadGramos;
-        this.estado = "comiendo";
-    }
-
-    public void dormir() {
+    public void dormir(){
         this.estado = "durmiendo";
     }
 
-    public void despertar() {
+    public void despertar(){
         this.estado = "reposando";
     }
 
-    public void descansar() {
+    public void descansar(){
         this.estado = "reposando";
     }
 
-    public void jugar(int cantidadMinutos) {
-        if (cantidadMinutos < 0) {
-            cantidadMinutos = cantidadMinutos * -1;
-        }
+    public void jugar(int cantidadMinutos){
         if (cantidadMinutos > 180) {
-            throw new IllegalArgumentException("Has superado el maximo de minutos (180)");
-        } else {
-            this.estado = "jugando";
-            do {
-                if (cantidadMinutos < 30) {
-                    break;
-                } else {
-                    cantidadMinutos -= 30;
-                    this.peso = (this.peso * 80) / 100;
-                }
-            } while (cantidadMinutos > 30);
-            if (cantidadMinutos > 0 && cantidadMinutos < 30) {
-                this.peso = (this.peso * 90) / 100;
-            }
+            throw new IllegalArgumentException("Has introducido mas de 3 horas (no está permitido)");
+        }
+        this.estado = "jugando";
+        if (cantidadMinutos < 0) {
+            cantidadMinutos *= -1;
+        }
+        while (cantidadMinutos > 30) {
+            this.peso *= 0.8;
+        }
+        if (cantidadMinutos < 30 && cantidadMinutos > 0) {
+            this.peso *= 0.9;
         }
     }
 
-    public Animal clonar(Animal pet) {
-        if (pet == null) {
-            throw new NullPointerException("El valor es null");
-        }
-        Animal clon = new Animal(pet.getFechaNacimiento(), pet.getNombre(), pet.getPeso(), pet.getTipo(),
-                pet.getEstado());
-        return clon;
+    public Animal clonar (Animal pet){
+        Animal copia = new Animal(pet);
+        return copia;
     }
 }
