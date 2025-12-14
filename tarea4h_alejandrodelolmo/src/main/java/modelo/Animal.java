@@ -3,12 +3,20 @@ package modelo;
 import java.time.LocalDate;
 
 public class Animal {
+    
+    // Declaramos las variables
     private LocalDate fechaNacimiento;
     private String nombre,tipo,estado;
     private int peso;
+
+    // Hacemos unos arrays con los posibles estados y tipos
+    // esto nos hará la tarea mas facil por si tenemos que añadir un nuevo
+    // tipo o estado, ya que simplemente lo tendremos que añadir al array
     private String [] estados = {"comiendo" , "durmiendo" , "reposando" , "jugando"};
     private String [] tipos = {"gato" , "perro", "cobaya" , "periquito"};
 
+    
+    // Creamos el constructor sin parametros que pondremos estos valores de ejemplo
     public Animal (){
         this.estado = "reposando";
         this.nombre = "Mike";
@@ -17,6 +25,8 @@ public class Animal {
         this.fechaNacimiento = LocalDate.of(2014,10,10);
     }
 
+    // Creamos el constructor copia poniendo todos los parametros
+    // del objeto introducido en el nuevo objeto
     public Animal (Animal copia){
         this.nombre = copia.nombre;
         this.fechaNacimiento = copia.fechaNacimiento;
@@ -24,6 +34,13 @@ public class Animal {
         this.tipo = copia.tipo;
         this.peso = copia.peso;
     }
+
+    // Ahora creamos el constructor parametrizado donde pediremos los 
+    // siguiente parametros y con eso construiremos el objeto
+    // obviamente comprobaremos si los datos son correctos en los siguientes datos:
+    // - Fecha de nacimiento
+    // - Tipo
+    // - Peso
 
     public Animal(LocalDate fechaNacimiento, String nombre, String tipo, int peso){
         // Comprobamos que la fecha de nacimiento sea correcta
@@ -50,7 +67,7 @@ public class Animal {
         if (this.tipo == null) {
             throw new IllegalArgumentException("Has introducido un tipo erroneo");
         }
-
+        this.estado = "reposando";
         this.nombre = nombre;
     }
 
@@ -106,6 +123,7 @@ public class Animal {
     }
 
     public void comer(double cantidadGramos){
+        // Si los gramos son negativos los multiplicaremos por -1 y ya
         if (cantidadGramos < 0) {
             cantidadGramos *= -1;
         }
@@ -130,12 +148,16 @@ public class Animal {
             throw new IllegalArgumentException("Has introducido mas de 3 horas (no está permitido)");
         }
         this.estado = "jugando";
+        // Lo pasamos a positivo si es negativo
         if (cantidadMinutos < 0) {
             cantidadMinutos *= -1;
         }
-        while (cantidadMinutos > 30) {
+        // Por cada 30 minutos que pasen reducimos el peso en 80%
+        while (cantidadMinutos >= 30) {
             this.peso *= 0.8;
+            cantidadMinutos -= 30;
         }
+        // Si son menos de 30 minutos lo que quedan, reducimos el peso en 90%
         if (cantidadMinutos < 30 && cantidadMinutos > 0) {
             this.peso *= 0.9;
         }
