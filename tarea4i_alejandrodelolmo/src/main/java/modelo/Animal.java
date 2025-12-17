@@ -6,20 +6,34 @@ public class Animal {
     
     // Declaramos las variables
     private LocalDate fechaNacimiento;
-    private String nombre,tipo,estado;
+    private String nombre;
+    private tiposEnum tipo;
+    private estadosEnum estado;
     private int peso;
 
     // Hacemos unos arrays con los posibles estados y tipos
     // esto nos hará la tarea mas facil por si tenemos que añadir un nuevo
     // tipo o estado, ya que simplemente lo tendremos que añadir al array
-    private String [] estados = {"comiendo" , "durmiendo" , "reposando" , "jugando"};
-    private String [] tipos = {"gato" , "perro", "cobaya" , "periquito"};
+    private enum tiposEnum {
+        GATO,
+        PERRO,
+        COBAYA,
+        PERIQUITO,
+        LAGARTO
+    }
+    private enum estadosEnum {
+        COMIENDO,
+        DURMIENDO,
+        REPOSANDO,
+        JUGANDO
+    }
+    
 
     // Creamos el constructor sin parametros que pondremos estos valores de ejemplo
     public Animal (){
-        this.estado = "reposando";
+        this.estado = estadosEnum.REPOSANDO;
         this.nombre = "Mike";
-        this.tipo = "perro";
+        this.tipo = tiposEnum.PERRO;
         this.peso = 5000;
         this.fechaNacimiento = LocalDate.of(2014,10,10);
     }
@@ -57,17 +71,16 @@ public class Animal {
             throw new IllegalArgumentException("Has introducido un peso erroneo");
         }
 
-        // AHora comprobaremos el estado
-        for (String tipoActual : tipos ) {
-            if (tipo.equalsIgnoreCase(tipoActual)) {
-                this.tipo = tipo;
+        // AHora comprobaremos el tipo
+        for (tiposEnum aux : tiposEnum.values()) {
+            if (tipo.equalsIgnoreCase(aux.toString())) {
+                this.tipo = aux;
             }
         }
-
         if (this.tipo == null) {
             throw new IllegalArgumentException("Has introducido un tipo erroneo");
         }
-        this.estado = "reposando";
+        this.estado = estadosEnum.REPOSANDO;
         this.nombre = nombre;
     }
 
@@ -82,11 +95,11 @@ public class Animal {
     }
 
     public String getTipo() {
-        return tipo;
+        return tipo.toString();
     }
 
     public String getEstado() {
-        return estado;
+        return estado.toString();
     }
 
     public int getPeso() {
@@ -109,9 +122,9 @@ public class Animal {
     }
 
     public void setEstado(String estado) {
-        for (String aux : estados) {
-            if (aux.equalsIgnoreCase(estado)) {
-                this.estado = estado;
+        for (estadosEnum aux : estadosEnum.values()) {
+            if (estado.equalsIgnoreCase(aux.toString())) {
+                this.estado = aux;
             }
         }
         if (this.estado == null) {
@@ -148,22 +161,22 @@ public class Animal {
     }
 
     public void dormir(){
-        this.estado = "durmiendo";
+        this.estado = estadosEnum.DURMIENDO;
     }
 
     public void despertar(){
-        this.estado = "reposando";
+        this.estado = estadosEnum.REPOSANDO;
     }
 
     public void descansar(){
-        this.estado = "reposando";
+        this.estado = estadosEnum.REPOSANDO;
     }
 
     public void jugar(int cantidadMinutos){
         if (cantidadMinutos > 180) {
             throw new IllegalArgumentException("Has introducido mas de 3 horas (no está permitido)");
         }
-        this.estado = "jugando";
+        this.estado = estadosEnum.JUGANDO;
         // Lo pasamos a positivo si es negativo
         if (cantidadMinutos < 0) {
             cantidadMinutos *= -1;

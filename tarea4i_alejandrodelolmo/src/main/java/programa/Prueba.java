@@ -42,6 +42,7 @@ public class Prueba {
 
         // Estos son casos donde las excepciones se lanzan correctamente
         Animal a4 = new Animal(LocalDate.of(1999, 10, 11), "Pepe", "lagartija", 10000);
+        Animal a7 = new Animal(LocalDate.now(), "pepe", "cobaya", 10000);
         Animal a5 = new Animal(LocalDate.of(2001, 10, 10), "jose luis", "pajaro", 2000);
         Animal a6 = new Animal(LocalDate.of(2010, 10, 10), "Bonas", "perro" , 10);
 
