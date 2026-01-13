@@ -54,8 +54,3 @@ public class OperacionesLista {
         return arrayInt;
     }
 }
-// Imprimimos la suma de los numeros pares de una lista de enteros
-// Imprimimos el numero de impares
-// Devolver el elemento mayor
-// Devolver el elemento menor
-// Obtener un array de int a partir de la lista
