@@ -5,14 +5,17 @@ import java.util.Objects;
 
 public class Libro {
 
+    // Variables
     private String titulo, autor;
     private final Long isbn;
     private LocalDate fechaPublicacion;
     private boolean disponible;
 
-    private enum Genero {
+
+    // Enum con descripciones
+    public enum Genero {
         NOVELA("Historias con elementos mágicos y mundos imaginarios"),
-        FICCION ("Obra basada en hechos, mundos o personajes imaginarios, no necesariamente reales"),
+        FICCION("Obra basada en hechos, mundos o personajes imaginarios, no necesariamente reales"),
         POESIA("Composición literaria que expresa sentimientos e ideas mediante ritmo y recursos expresivos"),
         RELATO("Narración breve en prosa que cuenta un hecho concreto con pocos personajes");
         private String descrip;
@@ -21,13 +24,15 @@ public class Libro {
             this.descrip = descrip;
         }
     }
+
     private Genero genero;
 
+    // Constructor parametrizado
     public Libro(String titulo, String autor, Long isbn,
-            LocalDate fechaPublicacion, boolean disponible, Genero genero) {
+                 LocalDate fechaPublicacion, boolean disponible, Genero genero) {
         this.autor = autor;
         this.titulo = titulo;
-        
+
         String comprobacion = String.valueOf(isbn);
         if (comprobacion.length() != 13) {
             throw new IllegalArgumentException("El numero debe tener 13 digitos");
@@ -37,8 +42,9 @@ public class Libro {
         this.disponible = disponible;
         this.genero = genero;
     }
- 
-    public Libro(){
+
+    // Constructor Default
+    public Libro() {
         this.autor = "Miguel de cervantes";
         this.titulo = "Don quijota de la mancha";
         this.isbn = 7564895432146L;
@@ -47,6 +53,8 @@ public class Libro {
         this.disponible = true;
     }
 
+
+    // Getters y setters
     public String getTitulo() {
         return titulo;
     }
@@ -87,6 +95,7 @@ public class Libro {
         this.genero = genero;
     }
 
+    // El toString nuevo
     @Override
     public String toString() {
         return "Libro [titulo=" + titulo + ", autor=" + autor + ", isbn=" + isbn + ", fechaPublicacion="
@@ -97,10 +106,10 @@ public class Libro {
     public boolean equals(Object o) {
         // 1. Verificamos si es la misma instancia en memoria
         if (this == o) return true;
-        
+
         // 2. Verificamos si el objeto es nulo o de una clase diferente
         if (o == null || getClass() != o.getClass()) return false;
-        
+
         // 3. Comparamos el atributo identificador (isbn)
         Libro libro = (Libro) o;
         return Objects.equals(isbn, libro.isbn);
@@ -112,16 +121,20 @@ public class Libro {
         return Objects.hash(isbn);
     }
 
+
+    // Metodo de prestar que cambia a false el estado de disponible del libro
     public void prestar() {
         if (this.disponible) {
             this.disponible = false;
         }
-    } 
+    }
 
-    public void devolver(){
+    // Igual que el prestar pero este cambia a true el estado de disponible
+    public void devolver() {
         if (!this.disponible) {
             this.disponible = true;
         }
     }
+
 
 }
