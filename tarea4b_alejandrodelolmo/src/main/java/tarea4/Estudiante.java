@@ -1,4 +1,4 @@
-package main.java.tarea4;
+package tarea4;
 
 public class Estudiante {
     // Declaramos las variables necesarias para el Objeto
