@@ -45,9 +45,11 @@ public class CatalogoLibros {
         }
     }
 
+
+
     public void imprimir() {
-        for (Libro listaLibro : listaLibros) {
-            System.out.println(listaLibro);
+        for (Libro libro : listaLibros) {
+            System.out.println(libro);
         }
     }
 
