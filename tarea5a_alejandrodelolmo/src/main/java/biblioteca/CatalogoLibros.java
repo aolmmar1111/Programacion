@@ -9,7 +9,7 @@ public class CatalogoLibros {
 
     // Constructor Default
     public CatalogoLibros() {
-        listaLibros = new ArrayList<Libro>(100);
+        listaLibros = new ArrayList<>(100);
     }
 
     public int cantidad() {
@@ -45,8 +45,8 @@ public class CatalogoLibros {
     }
 
     public void imprimir() {
-        for (int i = 0; i < listaLibros.size(); i++) {
-            System.out.println(listaLibros.get(i));
+        for (Libro listaLibro : listaLibros) {
+            System.out.println(listaLibro);
         }
     }
 
