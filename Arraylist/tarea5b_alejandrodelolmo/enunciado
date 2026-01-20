@@ -1,0 +1,13 @@
+Seguimos con la tarea anterior para completarla. En este caso vamos a crear una clase Estudiante y una clase que nos va a permitir relacionar estudiantes y libros, llamada Prestamo. La idea es que tengamos una aplicación que permita crear prestamos de libros entre libros y estudiantes existentes en nuestro programa.
+
+Sobre el proyecto de la tarea anterior, procede a crear la clase Estudiante con atributos encapsulados nombre, apellidos y dni. Incluye constructores, getters, setters, toString, equals y hashcode (por dni).
+
+Siguiendo el ejemplo del CatalogoLibros, crea una clase llamada CarteraEstudiantes con una lista de estudiantes. Incluye métodos para añadir, borrar, buscar, etc.
+
+Crea la clase Prestamo, incluyendo un atributo de tipo Estudiante, otro de tipo Libro, una fecha de préstamo y otra de devolución (15 días después de la fecha de préstamo). Estamos usando composición de clases (crear clases usando como atributos tipos de otras clases predefinidas).
+
+Crea un nuevo programa main con un Catálogo de libros, una Cartera de estudiantes
+con los datos que tú quieras y ofrece un menú que permita:
+1.- Ver libros
+2.- Ver estudiantes
+3.- Hacer un préstamo (a partir de un libro y un estudiante que existan en las listas) y ver los datos del préstamo creado. La fecha del préstamo es la fecha actual del sistema. Si el libro o el estudiante no existen, el préstamo no se crea.
