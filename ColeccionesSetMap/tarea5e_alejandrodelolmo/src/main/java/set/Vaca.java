@@ -3,7 +3,7 @@ package set;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Vaca {
+public class Vaca implements Comparable<Vaca>{
     private int id;
     private LocalDate fechaNacimiento;
     String descripcion;
@@ -64,6 +64,11 @@ public class Vaca {
     public int hashCode() {
         // Genera un código hash único basado en el contenido del ID
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Vaca vaquita) {
+        return Integer.compare(this.id, vaquita.getId());    
     }
     
 }

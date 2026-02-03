@@ -1,6 +1,5 @@
 package set;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,6 +28,14 @@ public class Vaqueria {
     }
 
     public ArrayList sacarAnimales (){
-        ArrayList array1 = 
+        ArrayList array1 = new ArrayList<>();
+        for (Vaca vaca : listaVacas) {
+            array1.add(vaca);
+        }
+        return array1;
+    }
+
+    public void darDeBaja(Vaca vaquita){
+        this.listaVacas.remove(vaquita);
     }
 }   
