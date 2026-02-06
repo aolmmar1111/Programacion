@@ -46,9 +46,10 @@ public class Conecta4 {
             try {
                 System.out.println(jugador + " elige una posicion del 1 al 6");
                 posicionX = tec.nextInt();
-                if ((plantilla[posicionX][7] == X) || (plantilla[posicionX][7] == O)) {
+                if (condition) {
                     
                 }
+
                 return tec.nextInt();
             } catch (Exception e) {
                 tec.nextLine();
