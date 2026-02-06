@@ -7,9 +7,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Traductor {
-    public static void main(String[] args) {
-    }
-
     private Map<String,String> palabras;
 
     public Traductor(){
@@ -38,7 +35,7 @@ public class Traductor {
 
     public void imprimir3(){
         for (String key : palabras.keySet()) {
-            System.out.println(key + " ......... " + palabras.get(key));
+            System.out.println(key + "  <-------->  " + palabras.get(key));
         }
     }
 
