@@ -57,7 +57,7 @@ public class Vaca implements Comparable<Vaca>{
 
         // 3. Comparamos el atributo identificador (dni)
         Vaca Vaca = (Vaca) o;
-        return Objects.equals(id, Vaca.id);
+        return Objects.equals(this.id, Vaca.getId());
     }    
     
     @Override
@@ -70,5 +70,4 @@ public class Vaca implements Comparable<Vaca>{
     public int compareTo(Vaca vaquita) {
         return Integer.compare(this.id, vaquita.getId());    
     }
-    
 }
