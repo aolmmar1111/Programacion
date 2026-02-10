@@ -34,4 +34,6 @@ public class Alumno {
     public void setNif(String nif) {
         this.nif = nif;
     }
+
+    
 }

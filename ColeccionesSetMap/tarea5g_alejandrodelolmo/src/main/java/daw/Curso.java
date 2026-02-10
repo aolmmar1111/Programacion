@@ -7,7 +7,7 @@ public class Curso {
 
     public Curso (String id, String nombre, int numeroHoras){
         this.id = id;
-        this.nombre = id;
+        this.nombre = nombre;
         this.numeroHoras = numeroHoras;
     }
 
