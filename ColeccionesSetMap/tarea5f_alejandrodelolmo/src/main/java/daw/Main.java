@@ -7,5 +7,7 @@ public class Main {
         ingles.guardarTraduccion("cat", "gato");
 
         ingles.imprimir();
+        ingles.imprimir2();
+        ingles.imprimir3();     
     }
 }

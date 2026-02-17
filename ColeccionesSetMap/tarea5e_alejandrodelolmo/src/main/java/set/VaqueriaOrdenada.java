@@ -18,7 +18,7 @@ public class VaqueriaOrdenada {
         this.listaOrdenadaDeVacas.add(vaquita);
     }
 
-    public boolean tieneVaca (){
+    public boolean estaVacia (){
         return this.listaOrdenadaDeVacas.isEmpty();
     }
 
@@ -26,8 +26,8 @@ public class VaqueriaOrdenada {
         return this.listaOrdenadaDeVacas.contains(vaquita);
     }
 
-    public ArrayList sacarAnimales (){
-        ArrayList array1 = new ArrayList<>();
+    public ArrayList<Vaca> sacarAnimales (){
+        ArrayList<Vaca> array1 = new ArrayList<>();
         for (Vaca vaca : listaOrdenadaDeVacas) {
             array1.add(vaca);
         }
