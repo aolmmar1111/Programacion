@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class Conecta4 {
     private static Scanner tec = new Scanner(System.in);
-    static String jugador1 = null,jugador2 = null,jugador = null;
-    public static int turno,posicionX;
+    static String jugador1 = null,jugador2 = null,auxJugador = null;
+    public static int posicionX;
+    private final int FILAS = 6, COLUMNAS = 7;
+    private static boolean turno;
     static char [][] plantilla = new char[6][7];
     static final char  X = 'X';
     static final char O = 'O';
+    
     public static void main(String[] args) {
 
         turno = 0;
@@ -21,13 +24,13 @@ public class Conecta4 {
         jugador2 = tec.nextLine();
 
         do { 
-            if (turno == 0) {
+            if (turno) {
                 posicionX = pedirNumero(turno);
-                turno++;
+                turno = false;
             } else {
                 System.out.println("a");
                 posicionX = pedirNumero(turno);
-                turno--;
+                turno = true;
             }
         } while (!victoria);
     }
@@ -39,9 +42,9 @@ public class Conecta4 {
     public static int pedirNumero (int turno){ 
         do {
             if (turno == 0) {
-                jugador = jugador1;
+                auxJugador = jugador1;
             } else if (turno == 1) {
-                jugador = jugador2;
+                auxJugador = jugador2;
             } 
             try {
                 System.out.println(jugador + " elige una posicion del 1 al 6");
