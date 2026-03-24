@@ -51,9 +51,7 @@ public class PanelPrincipal extends JPanel implements ActionListener{
 
   	@Override
     public void actionPerformed(ActionEvent ae) {
-	// Se obtiene el objeto que desencadena el evento
 		String comando = ae.getActionCommand();
-	// Si es un botón
 
 		if (comando.matches("[0-9]")) {
 			if (nuevaEntrada) {
